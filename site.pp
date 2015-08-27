@@ -12,12 +12,12 @@ $common_packages = [
   'tcpdump',
   'tmux',
   'vim-enhanced',
-  'wget'
+  'wget',
 ]
 
 package { $common_packages:
           ensure => 'installed',
-          require => Package ['epel-release']
+          require => Package ['epel-release'],
         }
 
 Exec {

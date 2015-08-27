@@ -30,3 +30,5 @@ Exec {
     '/sbin'
   ],
 }
+
+class { 'timezone': timezone => 'America/Chicago', }

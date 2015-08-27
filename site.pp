@@ -2,7 +2,7 @@ package { epel-release: ensure => 'installed' }
 $common_packages = [
   'atop',
   'curl',
-  'yum-cron',
+  'fail2ban',
   'htop',
   'iotop',
   'iptraf',
@@ -12,6 +12,7 @@ $common_packages = [
   'tcpdump',
   'tmux',
   'vim-enhanced',
+  'yum-cron',
   'wget',
 ]
 

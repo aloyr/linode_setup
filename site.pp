@@ -23,7 +23,7 @@ package { $common_packages:
   require => Package['epel-release'],
 }
 
-service { iptables.service:
+service { 'iptables.service':
   enable => true,
   ensure => 'running',
   require => Package[$common_packages],

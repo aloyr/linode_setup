@@ -3,9 +3,12 @@ $lamp = [
   'mod_ssl',
   'mariadb',
   'mariadb-server',
+  'memcached',
   'php',
   'php-mysql',
+  'php-pecl-apcu',
   'php-pecl-imagick',
+  'php-pecl-memcache',
 ]
 package { $lamp:
   ensure => 'installed',

@@ -9,6 +9,7 @@ $lamp = [
   'php-pecl-apcu',
   'php-pecl-imagick',
   'php-pecl-memcache',
+  'varnish',
 ]
 package { $lamp:
   ensure => 'installed',

@@ -5,6 +5,8 @@ $common_packages = [
   'fail2ban',
   'htop',
   'iotop',
+  'iptables-services',
+  'iptables-utils',
   'iptraf',
   'pv',
   'rsyslog',

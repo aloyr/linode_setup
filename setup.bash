@@ -18,8 +18,8 @@ iptables -A INPUT -m multiport -m tcp -p tcp --dports 22,80,443 -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A INPUT -m limit --limit 6/min -j LOG --log-prefix "IPT: "
 iptables -A INPUT -j DROP
-site=$(curl https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)
+site=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)
 /opt/puppetlabs/bin/puppet apply -e "$site"
 echo 'To setup a LAMP stack, use the following commands:'
-echo 'lamp=$(curl https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
+echo 'lamp=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
 echo '/opt/puppetlabs/bin/puppet apply -e "$lamp"'

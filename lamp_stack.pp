@@ -21,4 +21,5 @@ $lamp_services = [
 service { $lamp_services:
   enable => true,
   ensure => 'running',
+  require => Package[$lamp],
 }

@@ -19,9 +19,15 @@ $common_packages = [
 ]
 
 package { $common_packages:
-          ensure => 'installed',
-          require => Package['epel-release'],
-        }
+  ensure => 'installed',
+  require => Package['epel-release'],
+}
+
+service { iptables.service:
+  enable => true,
+  ensure => 'running',
+  require => Package[$common_packages],
+}
 
 Exec {
   path => [

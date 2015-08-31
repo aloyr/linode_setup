@@ -20,3 +20,6 @@ iptables -A INPUT -m limit --limit 6/min -j LOG --log-prefix "IPT: "
 iptables -A INPUT -j DROP
 site=$(curl https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)
 /opt/puppetlabs/bin/puppet apply -e "$site"
+echo 'To setup a LAMP stack, use the following commands:'
+echo 'site=$(curl https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
+echo '/opt/puppetlabs/bin/puppet apply -e "$site"'

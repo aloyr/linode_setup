@@ -28,7 +28,9 @@ $common_packages_6 = [
 ]
 
 if $operatingsystem == 'CentOS' {
-  package { $common_packages_6: ensure => 'installed', }
+  if $operatingsystemmajrelease == '6' {
+    package { $common_packages_6: ensure => 'installed', }
+  }
 }
 
 service { 'iptables':

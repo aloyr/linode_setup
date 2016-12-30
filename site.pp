@@ -3,6 +3,7 @@ $common_packages = [
   'atop',
   'curl',
   'fail2ban',
+  'git',
   'htop',
   'iotop',
   'iptables-services',

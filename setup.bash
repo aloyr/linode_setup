@@ -23,3 +23,9 @@ site=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/site.
 echo 'To setup a LAMP stack, use the following commands:'
 echo 'lamp=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
 echo '/opt/puppetlabs/bin/puppet apply -e "$lamp"'
+
+echo '---------------------------------------------'
+
+echo 'To setup a DB server, use the following commands:'
+echo 'db=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/db_server.pp);'
+echo '/opt/puppetlabs/bin/puppet apply -e "$db"'

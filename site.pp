@@ -9,6 +9,7 @@ $common_packages = [
   'iptables-services',
   'iptables-utils',
   'iptraf',
+  'openvpn',
   'pv',
   'rsyslog',
   'screen',

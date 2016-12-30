@@ -14,13 +14,20 @@ $common_packages = [
   'tcpdump',
   'tmux',
   'vim-enhanced',
-  'yum-cron',
   'wget',
 ]
 
 package { $common_packages:
   ensure => 'installed',
   require => Package['epel-release'],
+}
+
+$common_packages_6 = [
+  'yum-cron',
+]
+
+if $operatingsystem == 'CentOS' {
+  package { $common_packages_6: ensure => 'installed', }
 }
 
 service { 'iptables':

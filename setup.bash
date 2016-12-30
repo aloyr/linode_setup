@@ -1,5 +1,5 @@
 #!/bin/bash
-rpm -Uvh -y https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 yum install -y puppet-agent
 echo 'PATH="$PATH:/opt/puppetlabs/bin"' > /etc/profile.d/puppet.sh
 /opt/puppetlabs/bin/puppet module install saz-timezone
@@ -7,7 +7,7 @@ echo 'PATH="$PATH:/opt/puppetlabs/bin"' > /etc/profile.d/puppet.sh
 curl -s https://raw.githubusercontent.com/aloyr/system_config_files/master/setup.bash | GITEMAIL="username@gmail.com" bash
 if [ ! -d ~/.ssh ]; then
   ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
-  curl https://raw.githubusercontent.com/aloyr/ssh-keys/master/combined.pub > ~/.ssh/authorized_keys
+  curl -s https://raw.githubusercontent.com/aloyr/ssh-keys/master/combined.pub > ~/.ssh/authorized_keys
   chmod 600 ~/.ssh/authorized_keys
 fi
 sed -i.bak 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config

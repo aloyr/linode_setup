@@ -16,6 +16,7 @@ iptables -F
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -m multiport -m tcp -p tcp --dports 22,80,443 -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -i tun+ -j ACCEPT
 iptables -A INPUT -m limit --limit 6/min -j LOG --log-prefix "IPT: "
 iptables -A INPUT -j DROP
 site=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)

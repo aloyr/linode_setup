@@ -9,6 +9,8 @@ $common_packages = [
   'iptables-services',
   'iptables-utils',
   'iptraf',
+  'nagios-plugins-all',
+  'nrpe',
   'openvpn',
   'pv',
   'rsyslog',
@@ -35,8 +37,8 @@ if $operatingsystem == 'CentOS' {
   }
 }
 
-$iptables = [ 'iptables', 'ip6tables' ]
-service { $iptables:
+$services = [ 'iptables', 'ip6tables', 'nrpe' ]
+service { $services:
   enable => true,
   ensure => 'running',
   require => Package[$common_packages],

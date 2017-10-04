@@ -30,6 +30,8 @@ echo '[sshd]'         >> $f2bfile
 echo 'enabled = true' >> $f2bfile
 echo ""               >> $f2bfile
 systemctl restart fail2ban
+sed -ibak 's/#server_address=127.0.0.1/server_address=10.14.0.1/g' /etc/nagios/nrpe.cfg
+systemctl restart nrpe
 echo 'To setup a LAMP stack, use the following commands:'
 echo 'lamp=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
 echo '/opt/puppetlabs/bin/puppet apply -e "$lamp"'

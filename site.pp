@@ -17,6 +17,7 @@ $common_packages = [
   'tmux',
   'vim-enhanced',
   'wget',
+  'yum-cron',
 ]
 
 package { $common_packages:

@@ -34,7 +34,8 @@ if $operatingsystem == 'CentOS' {
   }
 }
 
-service { 'iptables':
+$iptables = [ 'iptables', 'ip6tables' ]
+service { $iptables:
   enable => true,
   ensure => 'running',
   require => Package[$common_packages],

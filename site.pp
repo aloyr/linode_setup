@@ -37,7 +37,7 @@ if $operatingsystem == 'CentOS' {
   }
 }
 
-$services = [ 'iptables', 'ip6tables', 'nrpe' ]
+$services = [ 'fail2ban', 'iptables', 'ip6tables', 'nrpe' ]
 service { $services:
   enable => true,
   ensure => 'running',

@@ -21,6 +21,15 @@ iptables -A INPUT -j DROP
 site=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)
 /opt/puppetlabs/bin/puppet apply -e "$site"
 sed -i.bak 's/apply_updates = no/apply_updates = yes/g' /etc/yum/yum-cron.conf
+f2bfile="/etc/fail2ban/jail.local"
+echo ""               >> $f2bfile
+echo '[DEFAULT]'      >> $f2bfile
+echo 'bantime = 3600' >> $f2bfile
+echo ""               >> $f2bfile
+echo '[sshd]'         >> $f2bfile
+echo 'enabled = true' >> $f2bfile
+echo ""               >> $f2bfile
+systemctl restart fail2ban
 echo 'To setup a LAMP stack, use the following commands:'
 echo 'lamp=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
 echo '/opt/puppetlabs/bin/puppet apply -e "$lamp"'

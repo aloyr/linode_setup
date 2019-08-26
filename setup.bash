@@ -42,3 +42,9 @@ echo '---------------------------------------------'
 echo 'To setup a DB server, use the following commands:'
 echo 'db=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/db_server.pp);'
 echo '/opt/puppetlabs/bin/puppet apply -e "$db"'
+
+echo '---------------------------------------------'
+
+echo 'To setup a docker node, use the following commands:'
+echo 'docker=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/docker.pp);'
+echo '/opt/puppetlabs/bin/puppet apply -e "$docker"'

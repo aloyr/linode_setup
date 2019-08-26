@@ -31,9 +31,16 @@ $common_packages_6 = [
   'yum-cron',
 ]
 
+$common_packages_7 = [
+  'yum-cron',
+]
+
 if $operatingsystem == 'CentOS' {
   if $operatingsystemmajrelease == '6' {
     package { $common_packages_6: ensure => 'installed', }
+  }
+  elseif $operatingsystemmajrelease == '7' {
+    package { $common_packages_7: ensure => 'installed', }
   }
 }
 

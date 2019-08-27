@@ -1,6 +1,6 @@
 #!/bin/bash
 rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-yum install -y puppet-agent
+yum install -y facter hiera puppet
 echo 'PATH="$PATH:/opt/puppetlabs/bin"' > /etc/profile.d/puppet.sh
 /opt/puppetlabs/bin/puppet module install saz-timezone
 /opt/puppetlabs/bin/puppet module install saz-sudo

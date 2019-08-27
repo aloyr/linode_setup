@@ -13,6 +13,7 @@ $common_packages = [
   'nrpe',
   'openvpn',
   'pv',
+  'python2-pip',
   'rsyslog',
   'screen',
   'tcpdump',

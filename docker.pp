@@ -9,7 +9,7 @@ package { $docker_req:
 }
 
 exec { 'docker-yum':
-  command => 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo',
+  command => '/usr/bin/yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo',
   creates => '/etc/yum.repos.d/docker-ce.repo',
   require => Package[$docker_req],
 }

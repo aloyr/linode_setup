@@ -1,9 +1,9 @@
 #!/bin/bash
-rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-yum install -y facter hiera puppet
-echo 'PATH="$PATH:/usr/bin"' > /etc/profile.d/puppet.sh
-/usr/bin/puppet module install saz-timezone
-/usr/bin/puppet module install saz-sudo
+rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+yum install -y puppet-agent
+echo 'PATH="$PATH:/opt/puppetlabs/bin"' > /etc/profile.d/puppet.sh
+/opt/puppetlabs/bin/puppet module install saz-timezone
+/opt/puppetlabs/bin/puppet module install saz-sudo
 curl -s https://raw.githubusercontent.com/aloyr/system_config_files/master/setup.bash | GITEMAIL="username@gmail.com" bash
 if [ ! -d ~/.ssh ]; then
   ssh-keygen -q -t ed25519 -N '' -f ~/.ssh/id_ed25519
@@ -20,7 +20,7 @@ iptables -A INPUT -i tun+ -j ACCEPT
 iptables -A INPUT -m limit --limit 6/min -j LOG --log-prefix "IPT: "
 iptables -A INPUT -j DROP
 site=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/site.pp)
-/usr/bin/puppet apply -e "$site"
+/opt/puppetlabs/bin/puppet apply -e "$site"
 sed -i.bak 's/apply_updates = no/apply_updates = yes/g' /etc/yum/yum-cron.conf
 f2bfile="/etc/fail2ban/jail.local"
 echo ""               >> $f2bfile
@@ -35,16 +35,16 @@ sed -ibak 's/#server_address=127.0.0.1/server_address=10.14.0.1/g' /etc/nagios/n
 systemctl restart nrpe
 echo 'To setup a LAMP stack, use the following commands:'
 echo 'lamp=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/lamp_stack.pp);'
-echo '/usr/bin/puppet apply -e "$lamp"'
+echo '/opt/puppetlabs/bin/puppet apply -e "$lamp"'
 
 echo '---------------------------------------------'
 
 echo 'To setup a DB server, use the following commands:'
 echo 'db=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/db_server.pp);'
-echo '/usr/bin/puppet apply -e "$db"'
+echo '/opt/puppetlabs/bin/puppet apply -e "$db"'
 
 echo '---------------------------------------------'
 
 echo 'To setup a docker node, use the following commands:'
 echo 'docker=$(curl -s https://raw.githubusercontent.com/aloyr/linode_setup/master/docker.pp);'
-echo '/usr/bin/puppet apply -e "$docker"'
+echo '/opt/puppetlabs/bin/puppet apply -e "$docker"'

@@ -40,7 +40,7 @@ if $operatingsystem == 'CentOS' {
   if $operatingsystemmajrelease == '6' {
     package { $common_packages_6: ensure => 'installed', }
   }
-  elseif $operatingsystemmajrelease == '7' {
+  elsif $operatingsystemmajrelease == '7' {
     package { $common_packages_7: ensure => 'installed', }
   }
 }

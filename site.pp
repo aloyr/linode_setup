@@ -28,23 +28,6 @@ package { $common_packages:
   require => Package['epel-release'],
 }
 
-$common_packages_6 = [
-  'yum-cron',
-]
-
-$common_packages_7 = [
-  'yum-cron',
-]
-
-if $operatingsystem == 'CentOS' {
-  if $operatingsystemmajrelease == '6' {
-    package { $common_packages_6: ensure => 'installed', }
-  }
-  elsif $operatingsystemmajrelease == '7' {
-    package { $common_packages_7: ensure => 'installed', }
-  }
-}
-
 $services = [ 'fail2ban', 'iptables', 'ip6tables', 'nrpe' ]
 service { $services:
   enable => true,

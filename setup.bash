@@ -1,5 +1,5 @@
 #!/bin/bash
-rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+rpm -Uvh https://yum.puppetlabs.com/puppet-release-el-7.noarch.rpm
 yum install -y puppet-agent
 echo 'PATH="$PATH:/opt/puppetlabs/bin"' > /etc/profile.d/puppet.sh
 /opt/puppetlabs/bin/puppet module install saz-timezone
